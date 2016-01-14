@@ -1,0 +1,33 @@
+{
+  "name": "babel-service",
+  "version": "0.0.1",
+  "description": "On demand targeted transpiling inside the browser's ServiceWorker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahmutov/babel-service.git"
+  },
+  "keywords": [
+    "babel",
+    "es6",
+    "es2015",
+    "transpile",
+    "transpiling",
+    "browser",
+    "service",
+    "service",
+    "worker",
+    "serviceworker",
+    "feature",
+    "features"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bahmutov/babel-service/issues"
+  },
+  "homepage": "https://github.com/bahmutov/babel-service#readme"
+}
