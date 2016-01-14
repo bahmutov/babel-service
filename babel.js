@@ -196,15 +196,17 @@ setup = (function IIFE(){
 })();
 
 self.addEventListener('install', function(event) {
-  event.waitUntil(self.skipWaiting());
+  event.waitUntil(
+    self
+      .skipWaiting()
+      .then(function () {
+        features = runTests(es6)
+        console.log('ran es6 feature tests', features)
+      })
+  );
 });
 self.addEventListener('activate', function(event) {
-  event.waitUntil(self.clients.claim()
-  	.then(function () {
-  		features = runTests(es6)
-  		console.log('ran es6 feature tests', features)
-  	})
-  )
+  event.waitUntil(self.clients.claim())
 });
 
 self.addEventListener('fetch', function (event) {
