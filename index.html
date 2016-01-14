@@ -5,12 +5,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>babel-service</title>
-  <script src="client.js"></script>
 </head>
 
 <body>
   <h1>babel-service (tested on Chrome Desktop only)</h1>
   <h2>On demand targeted transpiling inside the browser's ServiceWorker</h2>
-
+  <input type="number" id="a"> + <input type="number" id="b"> =
+  <span id="sum"></span> <button id="add">Add</button>
+  <script>
+    window.addEventListener('error', function (err) {
+      document.write('<p>Page has a problem: <strong>' + err.message + '</strong>')
+    })
+  </script>
+  <script src="app.js"></script>
+  <script src="client.js"></script>
 </body>
 </html>

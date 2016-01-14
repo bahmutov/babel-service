@@ -1,3 +1,36 @@
+self.addEventListener('fetch', function (event) {
+	// console.log('fetching', event.request.url)
+
+	if (!event.request.url.endsWith('/app.js')) {
+		return fetch(event.request)
+	}
+
+  console.log('fetching app.js')
+  event.respondWith(
+    fetch(event.request)
+      .then(function (response) {
+      	var copy = response.clone()
+        return copy.text()
+      })
+      .then(function (js) {
+      	var babelOptions = {
+      		plugins: ['transform-es2015-parameters', 'transform-es2015-block-scoping']
+      	}
+      	var transformed = Babel.transform(js, babelOptions)
+      	var responseOptions = {
+          status: 200,
+          headers: {
+            'Content-Type': 'application/javascript; charset=utf-8'
+          }
+        }
+        return new Response(transformed.code, responseOptions)
+      })
+  )
+  // var result = Babel.transform(code, { "plugins": ["transform-es2015-parameters", "transform-es2015-block-scoping"] })
+  // var addOut = eval('(' + result.code + ')')
+  // return to caller
+});
+
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
@@ -2000,7 +2033,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 345 */
 /***/ function(module, exports) {
 
-	
+
 
 /***/ },
 /* 346 */
@@ -32047,7 +32080,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            } else {
 	                number = +string;
 	            }
-	            
+
 	            if (!isFinite(number)) {
 	                error("Bad number");
 	            } else {
@@ -63968,7 +64001,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 7121 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__) {
 
-	
+
 	/**
 	 * This is the web browser implementation of `debug()`.
 	 *
@@ -64142,7 +64175,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 7122 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__) {
 
-	
+
 	/**
 	 * This is the common logic for both the Node.js and web browser
 	 * implementations of `debug()`.
