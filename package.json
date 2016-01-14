@@ -1,11 +1,12 @@
 {
   "name": "babel-service",
-  "version": "0.0.1",
   "description": "On demand targeted transpiling inside the browser's ServiceWorker",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server -c-1"
+    "test": "npm run lint",
+    "lint": "standard app.js client.js",
+    "start": "http-server -c-1",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "files": [
     "babel.js",
@@ -15,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bahmutov/babel-service.git"
+    "url": "https://github.com/bahmutov/babel-service.git"
   },
   "keywords": [
     "babel",
@@ -38,6 +39,8 @@
   },
   "homepage": "https://github.com/bahmutov/babel-service#readme",
   "devDependencies": {
-    "http-server": "0.8.5"
+    "http-server": "0.8.5",
+    "semantic-release": "^4.3.5",
+    "standard": "5.4.1"
   }
 }
