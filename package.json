@@ -2,6 +2,7 @@
   "name": "babel-service",
   "description": "On demand targeted transpiling inside the browser's ServiceWorker",
   "main": "index.js",
+  "version": "0.0.0-semantic-release",
   "scripts": {
     "test": "npm run lint",
     "lint": "standard app.js client.js",

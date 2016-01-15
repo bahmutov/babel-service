@@ -8,8 +8,15 @@
 [![Build status][babel-service-ci-image] ][babel-service-ci-url]
 [![semantic-release][semantic-image] ][semantic-url]
 
+## Main idea
+
 ServiceWorker that runs [ES6 feature tests](https://featuretests.io/) and transpiles the 
-incoming application code as needed.
+incoming application code as needed. If the browser already supports default parameters, then
+do not transpile them!
+
+## Demo
+
+
 
 ## Details
 
