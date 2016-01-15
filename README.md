@@ -22,8 +22,7 @@ to use a modern browser with ServiceWorker support (Chrome, Chrome Canary, Opera
 should work if you enable a flag, but I had problem running Babel JS inside Firefox.
 
 What you should see: once a page registers a `babel-service` ServiceWorker, it should reload
-reload itself. The ServiceWorker will intercept a file `app.js` that contains a simple ES6
-source code that uses 
+itself. The ServiceWorker will intercept a file `app.js` that contains a ES6 source code that uses 
 [default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters).
 
 ```js
