@@ -11,8 +11,8 @@
 ## Main idea
 
 ServiceWorker that runs [ES6 feature tests](https://featuretests.io/) and transpiles the 
-incoming application code as needed. If the browser already supports default parameters, then
-do not transpile them!
+incoming application code as needed. Each tested feature can map to a Babel plugin.
+For example, if the browser already supports ES6 default parameters, then do not transpile them!
 
 ## Demo
 
@@ -48,7 +48,7 @@ without default parameter support - it gets the transpiled version.
 On the other hand, Chrome Canary 49 already supports default parameters and does not need this
 feature transpiled
 
-![chrome canary 49](images/babel-service-canary.png)
+![chrome canary 49](images/babel-service-chrome-canary.png)
 
 ## Details
 
