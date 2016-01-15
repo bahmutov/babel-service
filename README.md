@@ -16,12 +16,45 @@ do not transpile them!
 
 ## Demo
 
+You can see demo at 
+[https://babel-service-demo.herokuapp.com](https://babel-service-demo.herokuapp.com/). Make sure
+to use a modern browser with ServiceWorker support (Chrome, Chrome Canary, Opera). Firefox
+should work if you enable a flag, but I had problem running Babel JS inside Firefox.
 
+What you should see: once a page registers a `babel-service` ServiceWorker, it should reload
+reload itself. The ServiceWorker will intercept a file `app.js` that contains a simple ES6
+source code that uses 
+[default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters).
+
+```js
+// app.js
+function add (a, b = 1) {
+  console.log('adding', a, b)
+  return a + b
+}
+```
+
+If your browser already supports them natively, the code will be returned from the `babel-service` 
+unchanged. If your browser does NOT support default parameters, the source code
+will be transpiled using Babel.
+
+### Screenshots
+
+The downloaded `app.js` is appended at the bottom of the page for clarity. First, the Chrome 47
+without default parameter support - it gets the transpiled version.
+
+![chrome 47](images/babel-service-chrome.png)
+
+On the other hand, Chrome Canary 49 already supports default parameters and does not need this
+feature transpiled
+
+![chrome canary 49](images/babel-service-canary.png)
 
 ## Details
 
-Feature testing code taken from 
-[this source file](https://github.com/getify/es-feature-tests/blob/master/lib/featuretests.js)
+[Feature testing](https://github.com/getify/es-feature-tests) code taken from 
+[this source file](https://github.com/getify/es-feature-tests/blob/master/lib/featuretests.js).
+It runs when the ServiceWorker is installed.
 
 Babel.js was built from [babel-standalone](https://www.npmjs.com/package/babel-standalone)
 
