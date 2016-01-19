@@ -57,6 +57,13 @@ It runs when the ServiceWorker is installed.
 
 Babel.js was built from [babel-standalone](https://www.npmjs.com/package/babel-standalone)
 
+## Related
+
+* [compiled](https://github.com/bahmutov/compiled) - same idea as `babel-service`, but for Node.
+  You write ES6, make a bundle and determine the ES6 features. Then every client when installing
+  runs targeted transpile. `compiled` is the simplest way to write ES6 code today without
+  mangling it to death before running.
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2015
